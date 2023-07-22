@@ -1,0 +1,49 @@
+.heading {
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+  font-size: 20px;
+  padding-bottom: 0.5rem;
+  font-family:sans-serif;
+}
+
+.list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: -5%;
+  padding: 0.5rem;
+  border-bottom: 2px solid gray;
+}
+
+.total {
+  display:inline-flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.total h5 {
+  font-weight: bold;
+  font-family:monospace;
+  margin: 0;
+  font-size: 20px;
+  padding-right: 1rem;
+}
+
+.list img {
+  height: 90px;
+  width: 90px;
+  padding: 0.25rem;
+}
+
+.list input {
+  width: 10%;
+  margin-left: 4rem;
+  text-align: center;
+}
+
+.title{
+    font-size: 25px;
+    font-family:cursive;
+    font-weight: bold;
+}

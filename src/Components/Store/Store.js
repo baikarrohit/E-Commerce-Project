@@ -1,4 +1,4 @@
-import React from "react";
+import {useContext} from "react";
 import { Card, Button, Container, Row, Col } from "react-bootstrap";
 import Album1 from "../../Assets/Music/Album1.jpg";
 import Album2 from "../../Assets/Music/Album2.jpg";
@@ -6,24 +6,29 @@ import Album3 from "../../Assets/Music/Album3.jpg";
 import Album4 from "../../Assets/Music/Album4.jpg";
 import Tshirt from "../../Assets/Merch/t-shirt.jpg";
 import Cofee from "../../Assets/Merch/cup.jpg";
+import CartContext from "../../Context/cart-context";
 
 const albums = [
   {
+    id: "m1",
     name: "Album 1",
     image: Album1,
     price: 12.99,
   },
   {
+    id: "m2",
     name: "Album 2",
     image: Album2,
     price: 14.99,
   },
   {
+    id: "m3",
     name: "Album 3",
     image: Album3,
     price: 9.99,
   },
   {
+    id: "m4",
     name: "Album 4",
     image: Album4,
     price: 19.99,
@@ -32,11 +37,13 @@ const albums = [
 
 const merchs = [
   {
+    id: "m5",
     name: "T-Shirt",
     image: Tshirt,
     price: 19.99,
   },
   {
+    id: "m6",
     name: "Cofee Cup",
     image: Cofee,
     price:6.99,
@@ -44,6 +51,11 @@ const merchs = [
 ];
 
 const Store = () => {
+  const cartCntx = useContext(CartContext);
+  const addToCartHandler = (item) => {
+    cartCntx.addItem({...item,quantity:1});
+    
+  }
   return (
     <div>
       <Container>
@@ -58,7 +70,7 @@ const Store = () => {
                 </Card.Body>
                 <Card.Footer>
                   <span>${album.price.toFixed(2)}</span>
-                  <Button variant="primary">Add To Cart</Button>
+                  <Button variant="primary" onClick={() => addToCartHandler(album)}>Add To Cart</Button>
                 </Card.Footer>
               </Card>
             </Col>
@@ -78,7 +90,7 @@ const Store = () => {
                 </Card.Body>
                 <Card.Footer>
                   <span>${merch.price.toFixed(2)}</span>
-                  <Button variant="primary">Add To Cart</Button>
+                  <Button variant="primary" onClick={() => addToCartHandler(merch)}>Add To Cart</Button>
                 </Card.Footer>
               </Card>
             </Col>

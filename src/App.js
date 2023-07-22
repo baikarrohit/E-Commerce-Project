@@ -1,16 +1,20 @@
 import Navbar from "./Components/Navbar/Navbar";
-import Header from './Components/Header/header';
+import Header from "./Components/Header/header";
 import Store from "./Components/Store/Store";
 import Footer from "./Components/Footer/Footer";
+import CartProvider from "./Context/CartProvider";
 
 function App() {
   return (
-    <div>
+    <CartProvider>
       <Navbar />
       <Header />
-      <Store/>
-      <Footer/>
-    </div>
+      <main>
+        <Store />
+      </main>
+
+      <Footer />
+    </CartProvider>
   );
 }
 
