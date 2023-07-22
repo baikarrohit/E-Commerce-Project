@@ -1,5 +1,7 @@
-import {Navbar, Container, Nav} from 'react-bootstrap';
-import Cart from '../Cart/Cart';
+import { Navbar, Container, Nav } from "react-bootstrap";
+import Cart from "../Cart/Cart";
+import { NavLink } from "react-router-dom";
+import classes from './Navbar.module.css';
 
 const Header = () => {
   return (
@@ -7,14 +9,26 @@ const Header = () => {
       <Navbar bg="dark" expand="sm" variant="dark">
         <Container>
           <Navbar.Brand>E-Commerce Website</Navbar.Brand>
-          
-            <Nav >
-                <Nav.Link href="#home">Home</Nav.Link>
-                <Nav.Link href="#store">Store</Nav.Link>
-                <Nav.Link href="#about">About</Nav.Link>
-                <Cart/>
-            </Nav>
-          
+
+          <Nav className={classes.nav}>
+            <Nav.Link
+              as={NavLink}
+              to="/"
+              className={({ isActive }) => 
+                isActive ? classes.active : undefined
+              }
+              end
+            >
+              Home
+            </Nav.Link>
+            <Nav.Link as={NavLink} to="/store">
+              Store
+            </Nav.Link>
+            <Nav.Link as={NavLink} to="/about">
+              About
+            </Nav.Link>
+            <Cart />
+          </Nav>
         </Container>
       </Navbar>
     </div>
