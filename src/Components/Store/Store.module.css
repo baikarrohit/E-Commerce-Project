@@ -1,0 +1,34 @@
+
+.container h3{
+    margin-bottom: 2rem;
+    margin-top: 2rem;
+    margin-left: 25rem;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: bold;
+}
+
+.card{
+   width: 20rem;
+   background-color: "#e4f2f2";
+   margin-top: 3px;
+   margin-bottom: 2rem;
+}
+
+.name{
+    text-align: center;
+    padding-top: 0.5rem;
+}
+
+.img {
+    padding: 0.5rem;
+    transition: ease-in 0.5s;
+    overflow: hidden;
+}
+.img:hover{
+  overflow: hidden;  
+}
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+}
