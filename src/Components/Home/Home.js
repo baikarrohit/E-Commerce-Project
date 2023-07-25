@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import classes from "./Home.module.css";
 
 const tourArr = [
@@ -11,6 +11,9 @@ const Home = () => {
   const [movies, setMovies] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
+  const titleRef = useRef("");
+  const textRef = useRef("");
+  const dateRef = useRef("");
 
   const fetchMoviesHandler = useCallback(async () => {
     setIsLoading(true);
@@ -41,7 +44,15 @@ const Home = () => {
     fetchMoviesHandler();
   }, [fetchMoviesHandler]);
 
-  
+  const formSubmitHandler = (event) => {
+    event.preventDefault();
+    const newMovieObj = {
+      title: titleRef.current.value,
+      openingText: textRef.current.value,
+      releaseDate: dateRef.current.value,
+    };
+    console.log(newMovieObj);
+  };
   return (
     <>
       <div className={classes.container}>
@@ -62,6 +73,15 @@ const Home = () => {
         </section>
 
         <section>
+          <form onSubmit={formSubmitHandler}>
+            <label>title</label>
+            <input type="text" ref={titleRef} />
+            <label>Opening Text</label>
+            <textarea rows="5" ref={textRef} />
+            <label>Release Date</label>
+            <input type="text" ref={dateRef} />
+            <button type="submit">Add Movie</button>
+          </form>
           <button onClick={fetchMoviesHandler}>Fetch Movies</button>
         </section>
         <section>
