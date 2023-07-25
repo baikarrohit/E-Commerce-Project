@@ -9,7 +9,10 @@ const tourArr = [
 ];
 const Home = () => {
   const [movies, setMovies] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+
   async function fetchMoviesHandler() {
+    setIsLoading(true);
     const response = await fetch("https://swapi.dev/api/films/");
     const data = await response.json();
 
@@ -22,6 +25,7 @@ const Home = () => {
       };
     });
     setMovies(transformedMovies);
+    setIsLoading(false);
   }
   return (
     <>
@@ -42,20 +46,22 @@ const Home = () => {
           ))}
         </section>
 
-
         <section>
           <button onClick={fetchMoviesHandler}>Fetch Movies</button>
         </section>
         <section>
-          <ul>
-            {movies.map((movie) => (
-              <li>
-                <h2>{movie.title}</h2>
-                <h3>{movie.releasedate}</h3>
-                <p>{movie.openingtext}</p>
-              </li>
-            ))}
-          </ul>
+          {!isLoading && (
+            <ul>
+              {movies.map((movie) => (
+                <li>
+                  <h2>{movie.title}</h2>
+                  <h3>{movie.releasedate}</h3>
+                  <p>{movie.openingtext}</p>
+                </li>
+              ))}
+            </ul>
+          )}
+          {isLoading && <p>Loading...</p>}
         </section>
       </div>
     </>
