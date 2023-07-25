@@ -14,27 +14,26 @@
 .latestBtn{
     display: block;
     border: 1px solid #56CCF2;
-    padding: 15px 40px;
+    padding: 15px 30px;
     margin: 10px auto;
     font-size: 23px;
-    font-weight: bold;
+    font-weight: 200;
     background: inherit;
     cursor: pointer;
     color: white;
-    font-family:Georgia, 'Times New Roman', Times, serif;
+
 }
 
 .playBtn{
     display: block;
-    border: 1px solid #56CCF2;
+    border: 2px solid #56CCF2;
     border-radius: 50%;
-    padding: 15px 40px;
-    margin: 10px auto;
-    font-size: 40px;
-    font-weight: bolder;
+    padding: 20px;
+    margin: 20px auto;
+    font-size: 30px;
+    font-weight: 200;
     color: #56CCF2;
     background: inherit;
-    margin-top: 3%;
     cursor: pointer;
 }
 

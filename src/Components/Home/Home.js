@@ -1,3 +1,4 @@
+import { useState } from "react";
 import classes from "./Home.module.css";
 
 const tourArr = [
@@ -7,6 +8,21 @@ const tourArr = [
   { date: "JUL29", city: "PHOENIX, AZ", theater: "AK-CHIN PAVILION" },
 ];
 const Home = () => {
+  const [movies, setMovies] = useState([]);
+  async function fetchMoviesHandler() {
+    const response = await fetch("https://swapi.dev/api/films/");
+    const data = await response.json();
+
+    const transformedMovies = data.results.map((movieData) => {
+      return {
+        id: movieData.episode_id,
+        title: movieData.title,
+        openingtext: movieData.opening_crawl,
+        releasedate: movieData.release_date,
+      };
+    });
+    setMovies(transformedMovies);
+  }
   return (
     <>
       <div className={classes.container}>
@@ -18,12 +34,28 @@ const Home = () => {
           <h1>TOURS</h1>
           {tourArr.map((ele) => (
             <div>
-                <span className={classes.date}>{ele.date}</span>
-                <span className={classes.city}>{ele.city}</span>
-                <span className={classes.theater}>{ele.theater}</span>
-                <button>BUY TICKETS</button>
+              <span className={classes.date}>{ele.date}</span>
+              <span className={classes.city}>{ele.city}</span>
+              <span className={classes.theater}>{ele.theater}</span>
+              <button>BUY TICKETS</button>
             </div>
           ))}
+        </section>
+
+
+        <section>
+          <button onClick={fetchMoviesHandler}>Fetch Movies</button>
+        </section>
+        <section>
+          <ul>
+            {movies.map((movie) => (
+              <li>
+                <h2>{movie.title}</h2>
+                <h3>{movie.releasedate}</h3>
+                <p>{movie.openingtext}</p>
+              </li>
+            ))}
+          </ul>
         </section>
       </div>
     </>

@@ -1,6 +1,6 @@
 import {useContext} from "react";
 import { Card, Button, Container, Row, Col } from "react-bootstrap";
-import Album1 from "../../Assets/Music/Album1.jpg";
+import Album1 from "../../Assets/Music/album1.jpg";
 import Album2 from "../../Assets/Music/Album2.jpg";
 import Album3 from "../../Assets/Music/Album3.jpg";
 import Album4 from "../../Assets/Music/Album4.jpg";
@@ -13,7 +13,7 @@ const albums = [
   {
     id: "m1",
     name: "Album 1",
-    image: Album2,
+    image: Album1,
     price: 12.99,
   },
   {
@@ -98,7 +98,7 @@ const Store = () => {
           ))}
         </Row>
       </Container>
-      <Button variant="outline-info" className=" my-4 ms-5">See the cart</Button>
+      <Button variant="secondary" className={classes.seeCartBtn}>See the cart</Button>
     </div>
   );
 };

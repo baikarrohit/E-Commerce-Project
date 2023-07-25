@@ -32,3 +32,11 @@
     display: flex;
     justify-content: space-between;
 }
+
+.seeCartBtn{
+    margin-left: 36%;
+    margin-bottom: 20px;
+    width: 12%;
+    color: #313435;
+    font-weight: bold;
+}
