@@ -5,7 +5,7 @@ import Navbar from "../Navbar/Navbar";
 
 const RootLayout = () => {
   return (
-    <>
+    <div style={{backgroundColor:'rgb(226, 233, 230)'}}>
       <Navbar />
       <Header />
       <main>
@@ -13,7 +13,7 @@ const RootLayout = () => {
       </main>
 
       <Footer />
-    </>
+    </div>
   );
 };
 

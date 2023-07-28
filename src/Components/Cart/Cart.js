@@ -1,7 +1,8 @@
 import { useContext, useState } from "react";
-import { Button, Form, Modal } from "react-bootstrap";
+import { Button, Modal } from "react-bootstrap";
 import CartContext from "../../Context/cart-context";
 import classes from "./Cart.module.css";
+import CartItems from "./CartItems";
 
 // const cartElements = [
 //   {
@@ -61,39 +62,37 @@ const Cart = () => {
       </Button>
 
       <Modal show={show} onHide={closeHandler} animation={false}>
-        <Modal.Header closeButton>
-          <Modal.Title className={classes.title}>Cart</Modal.Title>
-        </Modal.Header>
+        <div className={classes.modal}>
+          <Modal.Header closeButton>
+            <Modal.Title className={classes.title}>Cart</Modal.Title>
+          </Modal.Header>
 
-        <Modal.Body>
-          <div className={classes.heading}>
-            <span>ITEM</span>
-            <span>Price</span>
-            <span>Quantity</span>
-          </div>
-          <ul>
-            {cartCntx.items.map((cart, idx) => (
-              <li className={classes.list} key={idx}>
-                <div>
-                  <img alt="images" src={cart.image} />
-                  <span>{cart.name}</span>
-                </div>
-                <span>{cart.price}</span>
-                <Form.Control size="sm" type="text" value={cart.quantity}/>
-                <Button variant="danger" size="sm">
-                  Remove
-                </Button>
-              </li>
-            ))}
-          </ul>
-          <div className={classes.total}>
-            <h5>Total</h5>
-            <span>${total.toFixed(2)}</span>
-          </div>
-        </Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary">Purchase</Button>
-        </Modal.Footer>
+          <Modal.Body>
+            <div className={classes.heading}>
+              <span>ITEM</span>
+              <span>Price</span>
+              <span>Quantity</span>
+            </div>
+            <ul>
+              {cartCntx.items.map((cart, idx) => (
+                <CartItems
+                  id={idx}
+                  image={cart.image}
+                  name={cart.name}
+                  price={cart.price}
+                  quantity={cart.quantity}
+                />
+              ))}
+            </ul>
+            <div className={classes.total}>
+              <h5>Total</h5>
+              <span>${total.toFixed(2)}</span>
+            </div>
+          </Modal.Body>
+          <Modal.Footer>
+            <Button variant="secondary">Purchase</Button>
+          </Modal.Footer>
+        </div>
       </Modal>
     </div>
   );

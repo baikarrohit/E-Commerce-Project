@@ -1,9 +1,9 @@
 import { Navbar, Container, Nav } from "react-bootstrap";
 import Cart from "../Cart/Cart";
 import { NavLink } from "react-router-dom";
-import classes from './Navbar.module.css';
+import classes from "./Navbar.module.css";
 
-const Header = () => {
+const NavBar = () => {
   return (
     <div>
       <Navbar bg="dark" expand="sm" variant="dark">
@@ -14,7 +14,7 @@ const Header = () => {
             <Nav.Link
               as={NavLink}
               to="/"
-              className={({ isActive }) => 
+              className={({ isActive }) =>
                 isActive ? classes.active : undefined
               }
               end
@@ -38,4 +38,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default NavBar;

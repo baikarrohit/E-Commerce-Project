@@ -66,7 +66,7 @@ const Store = () => {
             <Col key={index}>
               <Card className={classes.card}>
                 <Card.Header className={classes.name}>{album.name}</Card.Header>
-                <Card.Body>
+                <Card.Body className={classes.cardbody}>
                   <Card.Img src={album.image} className={classes.img}/>
                 </Card.Body>
                 <Card.Footer className={classes.footer}>
