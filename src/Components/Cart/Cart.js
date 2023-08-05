@@ -53,6 +53,7 @@ const Cart = () => {
   cartCntx.items.forEach((ele) => {
     cartCount += Number(ele.quantity);
     total += Number(ele.price) * Number(ele.quantity);
+    
   });
 
   return (
@@ -76,14 +77,16 @@ const Cart = () => {
             <ul>
               {cartCntx.items.map((cart, idx) => (
                 <CartItems
+                  key={idx}
                   id={idx}
-                  image={cart.image}
-                  name={cart.name}
+                  image={cart.imageUrl[0]}
+                  name={cart.title}
                   price={cart.price}
                   quantity={cart.quantity}
                 />
               ))}
             </ul>
+            
             <div className={classes.total}>
               <h5>Total</h5>
               <span>${total.toFixed(2)}</span>

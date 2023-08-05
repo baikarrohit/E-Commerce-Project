@@ -1,6 +1,10 @@
-
 .nav a:active,
-.nav a:hover{
-    color:rgb(136, 129, 129);
-    text-decoration: underline;
+.nav a:hover {
+  color: rgb(136, 129, 129);
+  text-decoration: underline;
+}
+
+.btn {
+  border-radius: 10px;
+  margin-left: 10px;
 }

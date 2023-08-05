@@ -9,6 +9,7 @@ const Store = (props) => {
   const cartCntx = useContext(CartContext);
   const addToCartHandler = (item) => {
     cartCntx.addItem({ ...item, quantity: 1 });
+  
   };
   
   return (

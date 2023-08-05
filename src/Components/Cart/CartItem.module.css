@@ -1,20 +1,51 @@
 .list {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-left: -5%;
-    padding: 0.5rem;
-    border-bottom: 2px solid gray;
-  }
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
 
-  .list img {
-    height: 90px;
-    width: 90px;
-    padding: 0.25rem;
-  }
-  
-  .list input {
-    width: 10%;
-    margin-left: 4rem;
-    text-align: center;
-  }
+.list img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  margin-right: 5px;
+}
+
+.name {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.price {
+  font-size: 16px;
+}
+
+.list input {
+  width: 10%;
+  align-items: center;
+  justify-content: space-between;
+  margin-left: 40px;
+  text-align: center;
+  background-color: #ccc;
+  border-color: #2c9296;
+}
+
+.remove-button {
+  background-color: #dc3545;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.remove-button:hover {
+  background-color: #c82333;
+}
+
+.remove-button:focus {
+  outline: none;
+}

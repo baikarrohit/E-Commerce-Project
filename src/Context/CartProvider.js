@@ -1,22 +1,27 @@
 import { useState } from "react";
 import CartContext from "./cart-context";
 
-
 const CartProvider = (props) => {
   const [items, setItems] = useState([]);
 
   const addItemToCartHandler = (item) => {
-   
-    const existingItem = items.findIndex((cartItem) => cartItem.id === item.id);
-    if (existingItem === -1) {
-      setItems([...items, item]);
+    const existingItemIndex = items.findIndex(
+      (cartItem) => cartItem.id === item.id
+    );
+
+    if (existingItemIndex !== -1) {
+      // Item already exists in the cart, update its quantity
+      const updatedItems = [...items];
+      updatedItems[existingItemIndex].quantity += item.quantity;
+      setItems(updatedItems);
     } else {
-      const temp = [...items];
-      temp[existingItem].quantity += parseInt(item.quantity);
-      setItems(temp);
+      // Item does not exist in the cart, add it
+      setItems([...items, item]);
     }
   };
-  const removeItemFromCartHandler = (id) => {};
+  const removeItemFromCartHandler = (id) => {
+    setItems((prevItems) => prevItems.filter((item) => item.id !== id));
+  };
 
   const cartContext = {
     items: items,
