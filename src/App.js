@@ -3,15 +3,16 @@ import Home from "./Components/Home/Home";
 import About from "./Components/About/About";
 import ContactUS from "./Components/Contact/ContactUS";
 import CartProvider from "./Context/CartProvider";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import RootLayout from "./Components/Layout/Root";
 import Product from "./Components/Store/Product";
 import Login from "./Components/Login/Login";
-
+import { useContext } from "react";
+import AuthContext from "./Context/auth-context";
 
 const productsArr = [
-  { 
-    id: '1',
+  {
+    id: "1",
     title: "Album 1",
     price: 100,
     imageUrl: [
@@ -23,7 +24,7 @@ const productsArr = [
   },
 
   {
-    id: '2',
+    id: "2",
     title: "Album 2",
     price: 50,
     imageUrl: [
@@ -33,7 +34,7 @@ const productsArr = [
   },
 
   {
-    id: '3',
+    id: "3",
     title: "Album 3",
     price: 70,
     imageUrl: [
@@ -43,7 +44,7 @@ const productsArr = [
   },
 
   {
-    id: '4',
+    id: "4",
     title: "Album 4",
     price: 100,
     imageUrl: [
@@ -51,11 +52,10 @@ const productsArr = [
     ],
     des: "Lorem ipsum carrots enhanced rebates. Excellent sayings of a man of sorrows",
   },
-
 ];
 
-
 function App() {
+  const authCtx = useContext(AuthContext);
   // const router = createBrowserRouter([
   //   {
   //     path: "/",
@@ -75,9 +75,18 @@ function App() {
         <Routes>
           <Route path="/" element={<RootLayout />}>
             <Route index element={<Home />} />
-            <Route path="store" element={<Store productsArr={productsArr}/>} />
+            <Route
+              path="store"
+              element={
+                authCtx.isLoggedIn ? (
+                  <Store productsArr={productsArr} />
+                ) : (
+                  <Navigate to="/login" />
+                )
+              }
+            />
             <Route path="about" element={<About />} />
-            <Route path="login" element={<Login/>}/>
+            <Route path="login" element={<Login />} />
             <Route path="contact" element={<ContactUS />} />
             <Route
               path="store/:productId"
