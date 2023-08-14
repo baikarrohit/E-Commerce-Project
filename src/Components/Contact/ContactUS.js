@@ -13,6 +13,7 @@ const ContactUS = () => {
       email: emailRef.current.value,
       phoneNumber: phoneNumberRef.current.value,
     };
+
     try {
       await fetch(
         "https://ecommerce-http-bb6d7-default-rtdb.firebaseio.com/contacts.json",
@@ -27,7 +28,6 @@ const ContactUS = () => {
     } catch (error) {
       console.log("Something bad happened");
     }
-
     nameRef.current.value = "";
     emailRef.current.value = "";
     phoneNumberRef.current.value = "";

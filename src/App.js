@@ -3,7 +3,7 @@ import Home from "./Components/Home/Home";
 import About from "./Components/About/About";
 import ContactUS from "./Components/Contact/ContactUS";
 import CartProvider from "./Context/CartProvider";
-import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 import RootLayout from "./Components/Layout/Root";
 import Product from "./Components/Store/Product";
 import Login from "./Components/Login/Login";
@@ -71,30 +71,28 @@ function App() {
 
   return (
     <CartProvider>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<RootLayout />}>
-            <Route index element={<Home />} />
-            <Route
-              path="store"
-              element={
-                authCtx.isLoggedIn ? (
-                  <Store productsArr={productsArr} />
-                ) : (
-                  <Navigate to="/login" />
-                )
-              }
-            />
-            <Route path="about" element={<About />} />
-            <Route path="login" element={<Login />} />
-            <Route path="contact" element={<ContactUS />} />
-            <Route
-              path="store/:productId"
-              element={<Product productsArr={productsArr} />}
-            />
-          </Route>
-        </Routes>
-      </BrowserRouter>
+      <Routes>
+        <Route path="/" element={<RootLayout />}>
+          <Route index element={<Home />} />
+          <Route
+            path="store"
+            element={
+              authCtx.isLoggedIn ? (
+                <Store productsArr={productsArr} />
+              ) : (
+                <Navigate to="/login" />
+              )
+            }
+          />
+          <Route path="about" element={<About />} />
+          <Route path="login" element={<Login />} />
+          <Route path="contact" element={<ContactUS />} />
+          <Route
+            path="store/:productId"
+            element={<Product productsArr={productsArr} />}
+          />
+        </Route>
+      </Routes>
     </CartProvider>
   );
 }

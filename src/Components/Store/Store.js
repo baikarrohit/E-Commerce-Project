@@ -11,7 +11,7 @@ const Store = (props) => {
     cartCntx.addItem({ ...item, quantity: 1 });
   
   };
-  
+
   return (
     <div>
       <Container className={classes.container}>

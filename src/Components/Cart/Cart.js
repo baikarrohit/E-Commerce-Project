@@ -50,11 +50,34 @@ const Cart = () => {
     setShow(true);
   };
 
+  if (!cartCntx.items || cartCntx.items.length === 0) {
+    return (
+      <div>
+        <Button variant="outline-info" onClick={showHandler}>
+          Cart {cartCount}
+        </Button>
+        <Modal show={show} onHide={closeHandler} animation={false}>
+          <div className={classes.modal}>
+            <Modal.Header closeButton>
+              <Modal.Title className={classes.title}>Cart</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+              <p>Your cart is empty.</p>
+            </Modal.Body>
+          </div>
+        </Modal>
+      </div>
+    );
+  }
+
   cartCntx.items.forEach((ele) => {
     cartCount += Number(ele.quantity);
     total += Number(ele.price) * Number(ele.quantity);
-    
   });
+
+  const purchaseHandler = () => {
+    alert("Thanks for purchase!")
+  }
 
   return (
     <div>
@@ -78,22 +101,22 @@ const Cart = () => {
               {cartCntx.items.map((cart, idx) => (
                 <CartItems
                   key={idx}
-                  id={idx}
-                  image={cart.imageUrl[0]}
+                  index={idx}
+                  image={cart.imageUrl?.[0]}
                   name={cart.title}
                   price={cart.price}
                   quantity={cart.quantity}
                 />
               ))}
             </ul>
-            
+
             <div className={classes.total}>
               <h5>Total</h5>
               <span>${total.toFixed(2)}</span>
             </div>
           </Modal.Body>
           <Modal.Footer>
-            <Button variant="secondary">Purchase</Button>
+            <Button variant="secondary" onClick={purchaseHandler}>Purchase</Button>
           </Modal.Footer>
         </div>
       </Modal>

@@ -1,16 +1,20 @@
 import AuthContext from "./auth-context";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import CartContext from "./cart-context";
 
 const AuthContextProvider = (props) => {
   const initialToken = localStorage.getItem("token");
+  const initialEmail = localStorage.getItem("userEmail");
   const [token, setToken] = useState(initialToken);
-  const [userEmail, setUserEmail] = useState(null);
+  const [userEmail, setUserEmail] = useState(initialEmail);
+  const cartCntx = useContext(CartContext);
 
   const userIsLoggedIn = !!token;
 
   const loginHandler = (token,email) => {
     setToken(token);
     setUserEmail(email);
+    cartCntx.onLogin();
     localStorage.setItem("token", token);
     localStorage.setItem("userEmail", email);
   };
