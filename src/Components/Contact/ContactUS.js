@@ -1,10 +1,11 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import classes from "./ContactUS.module.css";
 
 const ContactUS = () => {
   const nameRef = useRef("");
   const emailRef = useRef("");
   const phoneNumberRef = useRef("");
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
   const formSubmitHandler = async (event) => {
     event.preventDefault();
@@ -25,6 +26,10 @@ const ContactUS = () => {
           },
         }
       );
+      setIsSubmitted(true);
+      setTimeout(() => {
+        setIsSubmitted(false);
+      }, 2000);
     } catch (error) {
       console.log("Something bad happened");
     }
@@ -35,6 +40,13 @@ const ContactUS = () => {
   return (
     <div>
       <h1 className={classes.title}>Contact US</h1>
+      {isSubmitted && (
+        <p
+          className={classes.successMsg}
+        >
+          Your response submitted successfully!
+        </p>
+      )}
       <form className={classes.form} onSubmit={formSubmitHandler}>
         <div>
           <label>Name:</label>

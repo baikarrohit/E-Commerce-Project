@@ -1,11 +1,11 @@
-import classes from './About.module.css';
+import classes from "./About.module.css";
 
 const About = () => {
   return (
     <section className={classes.about}>
-      <h2 >About</h2>
+      <h2>About</h2>
       <div>
-        <img alt="aboutImg" src="https://wallpapercave.com/wp/KtDU8Vg.jpg"/>
+        <img alt="aboutImg" src="https://wallpapercave.com/wp/KtDU8Vg.jpg" />
         <p>
           Lorem ipsum carrots enhanced rebates. Excellent sayings of a man of
           sorrows, hates no prosecutors will unfold in the enduring of which

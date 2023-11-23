@@ -7,26 +7,26 @@
 }
 
 .list img {
-  width: 60px;
-  height: 60px;
+  width: 50px;
+  height: 65px;
   object-fit: cover;
   margin-right: 5px;
 }
 
 .name {
-  font-size: 16px;
+  font-size: 14px;
   font-weight: bold;
 }
 
 .price {
-  font-size: 16px;
+  font-size: 14px;
 }
 
 .list input {
   width: 10%;
   align-items: center;
   justify-content: space-between;
-  margin-left: 40px;
+  margin-left: 15px;
   text-align: center;
   background-color: #ccc;
   border-color: #2c9296;

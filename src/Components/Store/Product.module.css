@@ -26,10 +26,12 @@
 .image{
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    padding: 10px;
+    padding-left: 15rem;
+    
 }
-
+.image img{
+    width: 400px;
+}
 .image li{
     list-style: none;
     display: flex;
@@ -44,6 +46,7 @@
 }
 .details span{
     padding: 5px;
+    font-weight: 500;
 }
 
 .review{

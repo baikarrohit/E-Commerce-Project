@@ -1,19 +1,31 @@
 .modal{
-  background-color: rgb(217, 226, 223);
+  background-color: rgb(226, 217, 217);
+  max-width: 500px;
+  margin: 0 auto;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
 }
 .heading {
+
   display: flex;
   justify-content: space-between;
+  margin: 10px 0;
+  padding: 0 10px;
   font-weight: bold;
-  font-size: 20px;
-  padding-bottom: 0.5rem;
-  font-family:sans-serif;
+}
+.heading span {
+  flex: 1;
+  text-align: center;
 }
 
 .total {
-  display:inline-flex;
-  align-items: center;
-  justify-content: space-between;
+
+
+  margin-top: 20px;
+  text-align: right;
+  font-size: 18px;
+  font-weight: bold;
 }
 
 .total h5 {
@@ -31,8 +43,9 @@
   font-family: monospace;
 }
 
-.title{
-    font-size: 25px;
-    font-family:cursive;
-    font-weight: bold;
+
+.title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 15px;
 }
