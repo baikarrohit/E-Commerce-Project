@@ -15,7 +15,7 @@ const CartProvider = (props) => {
     try {
       const email = authCtx.userEmail.replace(/[@.]/g, "");
       const response = await axios.get(
-        `https://crudcrud.com/api/684c6c305da14417b54ea6536a1d00f0/cart${email}`
+        `https://crudcrud.com/api/05244039027c413cbdf66128f73e6779/cart${email}`
       );
 
       const fetchedItems = response.data.reduce((accumulator, element) => {
@@ -64,7 +64,7 @@ const CartProvider = (props) => {
     try {
       const email = authCtx.userEmail.replace(/[@.]/g, "");
       const response = await axios.get(
-        `https://crudcrud.com/api/684c6c305da14417b54ea6536a1d00f0/cart${email}`
+        `https://crudcrud.com/api/05244039027c413cbdf66128f73e6779/cart${email}`
       );
       const resData = await response.data;
       let backendId;
@@ -80,7 +80,7 @@ const CartProvider = (props) => {
       });
       if (backendId) {
         await axios.delete(
-          `https://crudcrud.com/api/684c6c305da14417b54ea6536a1d00f0/cart${email}/${backendId}`
+          `https://crudcrud.com/api/05244039027c413cbdf66128f73e6779/cart${email}/${backendId}`
         );
         console.log("delete successful");
       }
@@ -108,7 +108,7 @@ const CartProvider = (props) => {
       }
       const email = authCtx.userEmail.replace(/[@.]/g, "");
       const response = await axios.post(
-        `https://crudcrud.com/api/684c6c305da14417b54ea6536a1d00f0/cart${email}`,
+        `https://crudcrud.com/api/05244039027c413cbdf66128f73e6779/cart${email}`,
         {
           cartItems: [cartItems],
         }
